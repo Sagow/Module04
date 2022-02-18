@@ -1,8 +1,8 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongAnimal.cpp"
-#include "WrongCat.cpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 
 int main()
@@ -28,5 +28,11 @@ std::cout << w_meta->getType() << " " << std::endl;
 w_i->makeSound(); //will NOT output the cat sound!
 w_meta->makeSound();
 
+delete meta;
+delete j;
+delete i;
+delete k;
+delete w_meta;
+delete w_i;
 return 0;
 }
