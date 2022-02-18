@@ -1,9 +1,8 @@
-SRCS =  main.cpp\
-         Animal.cpp\
-         Cat.cpp\
-		 Dog.cpp\
-		 WrongAnimal.cpp\
-		 WrongCat.cpp\
+SRCS =	main.cpp\
+		Animal.cpp\
+		Cat.cpp\
+		Dog.cpp\
+		Brain.cpp
 
 OBJS =  ${SRCS:.cpp=.o}
 
@@ -11,7 +10,7 @@ CC =    c++
 
 FLAGS = -std=c++98
 
-NAME =  ex00
+NAME =  ex01
 
 all: ${NAME}
 

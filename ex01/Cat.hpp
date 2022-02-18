@@ -14,8 +14,10 @@ class Cat : public Animal
 		Cat();
 		Cat( Cat const & src );
 		~Cat();
+		Cat &		operator=( Cat const & rhs );
 
 		virtual void	makeSound() const;
+		void			print_ideas();
 
 	private:
 

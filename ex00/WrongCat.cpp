@@ -30,6 +30,12 @@ WrongCat::~WrongCat()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
+WrongCat &		WrongCat::operator=( WrongCat const & rhs )
+{
+	_type = rhs._type;
+	return (*this);
+}
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */

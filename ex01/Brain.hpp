@@ -3,6 +3,9 @@
 
 # include <iostream>
 # include <string>
+# include <stdlib.h>
+
+ const std::string possibleIdeas[] = {"Manger", "Boire", "Dormir", "Vomir", "Mordre", "Faire des calins", "Prendre la pose", "Voler de la nourriture"};
 
 class Brain
 {
@@ -12,8 +15,9 @@ class Brain
 		Brain();
 		Brain( Brain const & src );
 		~Brain();
-
 		Brain &		operator=( Brain const & rhs );
+
+		std::string	getIdea(int i);
 
 	private:
 
@@ -21,6 +25,5 @@ class Brain
 
 };
 
-std::ostream &			operator<<( std::ostream & o, Brain const & i );
 
 #endif /* *********************************************************** BRAIN_H */

@@ -12,6 +12,7 @@ Cat::Cat() : Animal("Cat")
 
 Cat::Cat( const Cat & src )
 {
+	_brain = new Brain(*src._brain);
 	std::cout << "Cat copy constructor" << std::endl;
 	*this = src;
 }
@@ -23,6 +24,7 @@ Cat::Cat( const Cat & src )
 
 Cat::~Cat()
 {
+	delete _brain;
 	std::cout << "Cat destructor" << std::endl;
 }
 
@@ -30,6 +32,13 @@ Cat::~Cat()
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
+
+Cat &		Cat::operator=( Cat const & rhs )
+{
+	_type = rhs._type;
+	_brain = rhs._brain;
+	return (*this);
+}
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -39,6 +48,14 @@ void	Cat::makeSound() const
 {
 	std::cout << "Miaou (aboule les croquettes)" << std::endl;
 }
+
+void	Cat::print_ideas()
+{
+	for (int i = 0; i < 100; i++)
+		std::cout << _brain->getIdea(i) << " ";
+	std::cout << std::endl;
+}
+
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

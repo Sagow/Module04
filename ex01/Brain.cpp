@@ -6,10 +6,15 @@
 
 Brain::Brain()
 {
+	srand(time(NULL));
+	for (int i = 0; i < 100 ; i++)
+		_ideas[i] = possibleIdeas[rand() % possibleIdeas->length()];
+	std::cout << "Default Brain constructor" << std::endl;
 }
 
 Brain::Brain( const Brain & src )
 {
+	std::cout << "Copy Brain constructor" << std::endl;
 }
 
 
@@ -19,6 +24,7 @@ Brain::Brain( const Brain & src )
 
 Brain::~Brain()
 {
+	std::cout << "Brain destructor" << std::endl;
 }
 
 
@@ -29,21 +35,20 @@ Brain::~Brain()
 Brain &				Brain::operator=( Brain const & rhs )
 {
 	for (int i = 0; i < 100; i++)
-		this->_ideas->copy(rhs._ideas[i].c_str, rhs._ideas[i].length, 0);
+		_ideas[i] = rhs._ideas[i];
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Brain const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
+std::string	Brain::getIdea(int i)
+{
+	if (i >= 0 && i < 100)
+		return(_ideas[i]);
+	return (NULL);
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
