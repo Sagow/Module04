@@ -1,24 +1,23 @@
-#include "AMateria.hpp"
+#include "MateriaSource.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AMateria::AMateria()
+MateriaSource::MateriaSource()
 {
 }
 
-AMateria::AMateria( const AMateria & src )
+MateriaSource::MateriaSource( const MateriaSource & src )
 {
 }
 
-AMateria(std::string const & type);
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-AMateria::~AMateria()
+MateriaSource::~MateriaSource()
 {
 }
 
@@ -27,7 +26,7 @@ AMateria::~AMateria()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-AMateria &				AMateria::operator=( AMateria const & rhs )
+MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
 	//if ( this != &rhs )
 	//{
@@ -36,7 +35,7 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, AMateria const & i )
+std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
 {
 	//o << "Value = " << i.getValue();
 	return o;
@@ -47,15 +46,24 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-virtual void use(ICharacter& target);
+void	MateriaSource::learnMateria(AMateria* materia)
+{
+	int	i = 0;
+
+	while (i < 4 && _stock[i])
+		i++;
+	if (i < 4)
+		_stock[i] = materia;
+};
+
+AMateria*	MateriaSource::createMateria(std::string const & type)
+{
+
+};
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string const & AMateria::getType() const
-{
-	return (_type);
-}
 
 /* ************************************************************************** */

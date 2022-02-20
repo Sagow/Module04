@@ -1,24 +1,23 @@
-#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AMateria::AMateria()
+IMateriaSource::IMateriaSource()
 {
 }
 
-AMateria::AMateria( const AMateria & src )
+IMateriaSource::IMateriaSource( const IMateriaSource & src )
 {
 }
 
-AMateria(std::string const & type);
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-AMateria::~AMateria()
+IMateriaSource::~IMateriaSource()
 {
 }
 
@@ -27,7 +26,7 @@ AMateria::~AMateria()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-AMateria &				AMateria::operator=( AMateria const & rhs )
+IMateriaSource &				IMateriaSource::operator=( IMateriaSource const & rhs )
 {
 	//if ( this != &rhs )
 	//{
@@ -36,7 +35,7 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, AMateria const & i )
+std::ostream &			operator<<( std::ostream & o, IMateriaSource const & i )
 {
 	//o << "Value = " << i.getValue();
 	return o;
@@ -47,15 +46,10 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-virtual void use(ICharacter& target);
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string const & AMateria::getType() const
-{
-	return (_type);
-}
 
 /* ************************************************************************** */

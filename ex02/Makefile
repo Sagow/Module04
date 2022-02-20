@@ -8,7 +8,7 @@ OBJS =  ${SRCS:.cpp=.o}
 
 CC =    c++
 
-FLAGS = -std=c++98
+FLAGS = -std=c++98 -Wall -Werror -Wextra
 
 NAME =  ex01
 

@@ -1,24 +1,23 @@
-#include "AMateria.hpp"
+#include "Ice.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AMateria::AMateria()
+Ice::Ice()
 {
 }
 
-AMateria::AMateria( const AMateria & src )
+Ice::Ice( const Ice & src )
 {
 }
 
-AMateria(std::string const & type);
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-AMateria::~AMateria()
+Ice::~Ice()
 {
 }
 
@@ -27,7 +26,7 @@ AMateria::~AMateria()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-AMateria &				AMateria::operator=( AMateria const & rhs )
+Ice &				Ice::operator=( Ice const & rhs )
 {
 	//if ( this != &rhs )
 	//{
@@ -36,7 +35,7 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, AMateria const & i )
+std::ostream &			operator<<( std::ostream & o, Ice const & i )
 {
 	//o << "Value = " << i.getValue();
 	return o;
@@ -47,15 +46,14 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-virtual void use(ICharacter& target);
+void Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string const & AMateria::getType() const
-{
-	return (_type);
-}
 
 /* ************************************************************************** */

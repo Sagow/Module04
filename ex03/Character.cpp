@@ -1,24 +1,23 @@
-#include "AMateria.hpp"
+#include "Character.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AMateria::AMateria()
+Character::Character()
 {
 }
 
-AMateria::AMateria( const AMateria & src )
+Character::Character( const Character & src )
 {
 }
 
-AMateria(std::string const & type);
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-AMateria::~AMateria()
+Character::~Character()
 {
 }
 
@@ -27,7 +26,7 @@ AMateria::~AMateria()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-AMateria &				AMateria::operator=( AMateria const & rhs )
+Character &				Character::operator=( Character const & rhs )
 {
 	//if ( this != &rhs )
 	//{
@@ -36,7 +35,7 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, AMateria const & i )
+std::ostream &			operator<<( std::ostream & o, Character const & i )
 {
 	//o << "Value = " << i.getValue();
 	return o;
@@ -47,15 +46,40 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-virtual void use(ICharacter& target);
+std::string const & Character::getName() const
+{
+	return (_name);
+};
+
+void Character::equip(AMateria* m)
+{
+	int	i = 0;
+	while (i < 4 && _inventory[i])
+		i++;
+	if (i < 4)
+		_inventory[i] = m;
+};
+
+void Character::unequip(int idx)
+{
+	int	i = idx;
+
+	while (i < 3)
+	{
+		_inventory[i] = _inventory[i + 1];
+		i++;
+	}
+	_inventory[i] = NULL;
+};
+
+void Character::use(int idx, ICharacter& target)
+{
+	_inventory[idx]->use(target);
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string const & AMateria::getType() const
-{
-	return (_type);
-}
 
 /* ************************************************************************** */

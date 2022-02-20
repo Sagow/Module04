@@ -1,24 +1,23 @@
-#include "AMateria.hpp"
+#include "Cure.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AMateria::AMateria()
+Cure::Cure()
 {
 }
 
-AMateria::AMateria( const AMateria & src )
+Cure::Cure( const Cure & src )
 {
 }
 
-AMateria(std::string const & type);
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-AMateria::~AMateria()
+Cure::~Cure()
 {
 }
 
@@ -27,7 +26,7 @@ AMateria::~AMateria()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-AMateria &				AMateria::operator=( AMateria const & rhs )
+Cure &				Cure::operator=( Cure const & rhs )
 {
 	//if ( this != &rhs )
 	//{
@@ -36,7 +35,7 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, AMateria const & i )
+std::ostream &			operator<<( std::ostream & o, Cure const & i )
 {
 	//o << "Value = " << i.getValue();
 	return o;
@@ -47,15 +46,14 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-virtual void use(ICharacter& target);
+void Cure::use(ICharacter& target)
+{
+	std::cout << "* heals " << target.getName() <<"’s wounds *" << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string const & AMateria::getType() const
-{
-	return (_type);
-}
 
 /* ************************************************************************** */
