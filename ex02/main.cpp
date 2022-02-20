@@ -16,7 +16,7 @@ std::cout << Inox->getType() << " " << std::endl;
 Inox->makeSound();
 std::cout << "Inox :" << std::endl;
 Inox->print_ideas();
-//Moumoune = *Inox;
+Moumoune = *Inox;
 std::cout << "Moumoune :" << std::endl;
 Moumoune.print_ideas();
 
