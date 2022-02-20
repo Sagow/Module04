@@ -10,6 +10,7 @@ const Animal*	j = new Dog();
 const Animal*	i = new Cat();
 Cat				*Inox = new Cat();
 Cat				Moumoune;
+//Animal          neMarchePas = new Animal();
 
 std::cout << Inox->getType() << " " << std::endl;
 Inox->makeSound();
